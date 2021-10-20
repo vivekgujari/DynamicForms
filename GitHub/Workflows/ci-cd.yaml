@@ -3,7 +3,7 @@ name: Continuous Integratino and Deployment
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
