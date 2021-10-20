@@ -1,0 +1,32 @@
+﻿@model DynamicWebApp.Models.ApplicationUser
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+};
+
+
+<h2>User Forms</h2>
+<button class="btn-link js-form">Click here</button>
+<p id="dynamic_form"></p>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-form").on("click", function () {
+                confirm("Button clicked");
+                var form = document.createElement("form");
+                var br = document.createElement("br");
+                for (let i = 0; i < 5; i++)
+                {
+                    var element = document.createElement("input");
+                    element.setAttribute("type", "text");
+                    element.setAttribute("name", "FullName");
+                    form.appendChild(element);
+                    form.appendChild(br.cloneNode());
+                }
+                document.getElementsByTagName("p")[0].appendChild(form);
+            });
+        });
+    </script>
+}

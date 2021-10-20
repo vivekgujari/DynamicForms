@@ -1,0 +1,17 @@
+﻿@model DynamicWebApp.Models.ApplicationUser
+@{
+    ViewData["Title"] = "Dynamic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Dynamic Web form</h1>
+
+<form method="post"> 
+    @for (int i = 0; i < Model.Attributes.Count; i++)
+    { 
+        <div class="form-group">
+            <label for="item">@Model.Attributes[i].Name</label>
+            <input type="text" class="form-control" id="item"/>
+        </div>
+    }
+</form>
